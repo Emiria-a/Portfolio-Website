@@ -14,17 +14,12 @@
         <h1>Emma Outor</h1>
         
         <div id="navbar">
-            <a href="#presentation" title="A propos de moi">A propos de moi</a>
-
-            <a href="#formations" title="Mes formations">Mes formations</a>
-
-            <a href="#experiences" title="Mes expériences professionnelles">Mes expériences professionnelles</a>
-
-            <a href="#competences" title="Mes compétences">Mes compétences</a>
-
-            <a href="#projets" title="Mes projets">Mes projets</a>
+            <a href="#presentation" data-translate="about" data-translate-title="title_about">A propos de moi</a>
+            <a href="#formations" data-translate="education" data-translate-title="title_education">Mes formations</a>
+            <a href="#experiences" data-translate="experience" data-translate-title="title_experience">Mes expériences professionnelles</a>
+            <a href="#competences" data-translate="skills" data-translate-title="title_skills">Mes compétences</a>
+            <a href="#projets" data-translate="projects" data-translate-title="title_projects">Mes projets</a>
         </div>
-
         <div id="switch">
             <!-- Rounded switch -->
             <label class="switch">
@@ -32,9 +27,15 @@
                 <span class="slider round"></span>
             </label>
         </div>
+        <div id="language-selector">
+            <select id="languageSelect" onchange="setLanguage(this.value)">
+                <option value="en">🇬🇧 English</option>
+                <option value="fr">🇫🇷 Français</option>
+            </select>
+        </div>
 
         <div id="button">
-            <button id="contactButton" title="Contactez-moi">Contactez-moi</button>
+            <button id="contactButton" data-translate="contact" data-translate-title="title_contact">Contactez-moi</button>
         </div>
     </div>
 
@@ -43,48 +44,48 @@
         <div class="container">
             <section id="ecriture">
                 <h2>Emma<br>Outor</h2>
-                <p>Je suis une étudiante en 3ème année de BUT Informatique.</p>
+                <p data-translate="introduction">Je suis une étudiante en 3ème année de BUT Informatique.</p>
             </section>
         </div>
         <div class="container link">
             <div id="DownloadCV">
-                <button class="btn"><i class="fa fa-download"></i> CV</button>
+                <button class="btn"><i class="fa fa-download"></i> <span data-translate="downloadCV">CV</span></button>
             </div>
             <div id="reseauxSociaux">
-                <a href="https://www.linkedin.com/in/emma-outor-123456789" class="fa fa-linkedin" title="LinkedIn"></a>
-                <a href="https://www.github.com/emma-outor" class="fa fa-github" title="GitHub"></a>
+                <a href="https://www.linkedin.com/in/emma-outor-123456789" class="fa fa-linkedin" data-translate-title="title_linkedin"></a>
+                <a href="https://www.github.com/emma-outor" class="fa fa-github" data-translate-title="title_github"></a>
             </div>
         </div>
     </div>
 
     <!------------------------- A propos de moi ------------------------------------>
     <section id="aPropos">
-        <h2>A propos de moi</h2>
-        <p>Je suis sérieuse, motivée, organisée et discrète. J'ai pour projet de travailler dans le développement d'applications et/ou développement web. J’ai des compétences avec plusieurs langages de développement tels que C#, Wpf, HTML/CSS, PHP, Javascript et MySQL.</p>
+        <h2 data-translate="about">A propos de moi</h2>
+        <p data-translate="aboutMe">Je suis sérieuse, motivée, organisée et discrète. J'ai pour projet de travailler dans le développement d'applications et/ou développement web. J'ai des compétences avec plusieurs langages de développement tels que C#, Wpf, HTML/CSS, PHP, Javascript et MySQL.</p>
     </section>
 
     <!------------------------- Mes formations ------------------------------------>
     <section id="formations">
-        <h2>Mes formations</h2>
-        <p>Je suis actuellement étudiante en informatique à l'Université de Technologie de Compiègne. J'ai obtenu mon baccalauréat scientifique en 2019. J'ai ensuite intégré l'UTC pour poursuivre mes études dans le domaine de l'informatique.</p>
+        <h2 data-translate="education">Mes formations</h2>
+        <p data-translate="education_text">Je suis actuellement étudiante en informatique à l'Université de Technologie de Compiègne. J'ai obtenu mon baccalauréat scientifique en 2019. J'ai ensuite intégré l'UTC pour poursuivre mes études dans le domaine de l'informatique.</p>
     </section>
 
     <!------------------------- Mes expériences professionnelles ------------------------------------>
     <section id="experiences">
-        <h2>Mes expériences professionnelles</h2>
-        <p>J'ai réalisé plusieurs projets en lien avec le développement web et mobile. J'ai notamment travaillé sur la création d'un site web pour une association. J'ai également développé une application mobile pour une entreprise. Vous pouvez retrouver ces projets sur mon portfolio.</p>
+        <h2 data-translate="experience">Mes expériences professionnelles</h2>
+        <p data-translate="experience_text">J'ai réalisé plusieurs projets en lien avec le développement web et mobile. J'ai notamment travaillé sur la création d'un site web pour une association. J'ai également développé une application mobile pour une entreprise. Vous pouvez retrouver ces projets sur mon portfolio.</p>
     </section>
 
     <!------------------------- Mes compétences ------------------------------------>
     <section id="competences">
-        <h2>Mes compétences</h2>
-        <p>Je maîtrise plusieurs langages de programmation tels que le HTML, le CSS, le JavaScript, le PHP et le Java. J'ai également des compétences en design web et en développement mobile. Je suis capable de réaliser des sites web et des applications mobiles de qualité.</p>
+        <h2 data-translate="skills">Mes compétences</h2>
+        <p data-translate="skills_text">Je maîtrise plusieurs langages de programmation tels que le HTML, le CSS, le JavaScript, le PHP et le Java. J'ai également des compétences en design web et en développement mobile. Je suis capable de réaliser des sites web et des applications mobiles de qualité.</p>
     </section>
 
     <!------------------------- Mes projets ------------------------------------>
     <section id="projets">
-        <h2>Mes projets</h2>
-        <p>Voici quelques-uns des projets que j'ai réalisés. Vous pouvez retrouver l'ensemble de mes projets sur mon portfolio.</p>
+        <h2 data-translate="projects">Mes projets</h2>
+        <p data-translate="projects_text">Voici quelques-uns des projets que j'ai réalisés. Vous pouvez retrouver l'ensemble de mes projets sur mon portfolio.</p>
         <div id="projet1">
             <img src="images/projet1.jpg" alt="Projet 1">
             <p>Projet 1</p>
@@ -98,17 +99,20 @@
     <!------------------------- Contactez-moi ------------------------------------>
     <div id="contact">
         <div id="container">
-            <h2>Contactez-moi</h2>
+            <h2 data-translate="contact">Contactez-moi</h2>
             <form action="index.php" method="post">
-                <label for="nom">Nom :</label>
+                <label for="nom" data-translate="name">Nom :</label>
                 <input type="text" id="nom" name="nom" required>
                 <label for="email">Email :</label><br>
                 <input type="email" id="email" name="email" required><br>
-                <label for="message">Message :</label>
+                <label for="message" data-translate="message">Message :</label>
                 <textarea id="message" name="message" required></textarea>
-                <input type="submit" value="Envoyer">
+                <input type="submit" data-translate="send" value="Envoyer">
             </form>
         </div>
     </div>
+
+    <!-- Add JavaScript file -->
+    <script src="js/translations.js"></script>
 </body>
 </html>
