@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Download icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="CSS/index.css">
+    <title>Portfolio - Emma Outor</title>
+</head>
+<body>
+    <!------------------------- Navbar ------------------------------------>
+    <div id="pagetop">
+        <h1>Emma Outor</h1>
+        
+        <div id="navbar">
+            <a href="#presentation" title="A propos de moi">A propos de moi</a>
+
+            <a href="#formations" title="Mes formations">Mes formations</a>
+
+            <a href="#experiences" title="Mes expériences professionnelles">Mes expériences professionnelles</a>
+
+            <a href="#competences" title="Mes compétences">Mes compétences</a>
+
+            <a href="#projets" title="Mes projets">Mes projets</a>
+        </div>
+
+        <div id="switch">
+            <!-- Rounded switch -->
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div id="button">
+            <button id="contactButton" title="Contactez-moi">Contactez-moi</button>
+        </div>
+    </div>
+
+    <!------------------------- Présentation ------------------------------------>
+    <div id="presentation">
+        <div class="container">
+            <section id="ecriture">
+                <h2>Emma<br>Outor</h2>
+                <p>Je suis une étudiante en 3ème année de BUT Informatique.</p>
+            </section>
+        </div>
+        <div class="container link">
+            <div id="DownloadCV">
+                <button class="btn"><i class="fa fa-download"></i> CV</button>
+            </div>
+            <div id="reseauxSociaux">
+                <a href="https://www.linkedin.com/in/emma-outor-123456789" class="fa fa-linkedin" title="LinkedIn"></a>
+                <a href="https://www.github.com/emma-outor" class="fa fa-github" title="GitHub"></a>
+            </div>
+        </div>
+    </div>
+
+    <!------------------------- A propos de moi ------------------------------------>
+    <section id="aPropos">
+        <h2>A propos de moi</h2>
+        <p>Je suis sérieuse, motivée, organisée et discrète. J'ai pour projet de travailler dans le développement d'applications et/ou développement web. J’ai des compétences avec plusieurs langages de développement tels que C#, Wpf, HTML/CSS, PHP, Javascript et MySQL.</p>
+    </section>
+
+    <!------------------------- Mes formations ------------------------------------>
+    <section id="formations">
+        <h2>Mes formations</h2>
+        <p>Je suis actuellement étudiante en informatique à l'Université de Technologie de Compiègne. J'ai obtenu mon baccalauréat scientifique en 2019. J'ai ensuite intégré l'UTC pour poursuivre mes études dans le domaine de l'informatique.</p>
+    </section>
+
+    <!------------------------- Mes expériences professionnelles ------------------------------------>
+    <section id="experiences">
+        <h2>Mes expériences professionnelles</h2>
+        <p>J'ai réalisé plusieurs projets en lien avec le développement web et mobile. J'ai notamment travaillé sur la création d'un site web pour une association. J'ai également développé une application mobile pour une entreprise. Vous pouvez retrouver ces projets sur mon portfolio.</p>
+    </section>
+
+    <!------------------------- Mes compétences ------------------------------------>
+    <section id="competences">
+        <h2>Mes compétences</h2>
+        <p>Je maîtrise plusieurs langages de programmation tels que le HTML, le CSS, le JavaScript, le PHP et le Java. J'ai également des compétences en design web et en développement mobile. Je suis capable de réaliser des sites web et des applications mobiles de qualité.</p>
+    </section>
+
+    <!------------------------- Mes projets ------------------------------------>
+    <section id="projets">
+        <h2>Mes projets</h2>
+        <p>Voici quelques-uns des projets que j'ai réalisés. Vous pouvez retrouver l'ensemble de mes projets sur mon portfolio.</p>
+        <div id="projet1">
+            <img src="images/projet1.jpg" alt="Projet 1">
+            <p>Projet 1</p>
+        </div>
+        <div id="projet2">
+            <img src="images/projet2.jpg" alt="Projet 2">
+            <p>Projet 2</p>
+        </div>
+    </section>
+
+    <!------------------------- Contactez-moi ------------------------------------>
+    <div id="contact">
+        <div id="container">
+            <h2>Contactez-moi</h2>
+            <form action="index.php" method="post">
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" required>
+                <label for="email">Email :</label><br>
+                <input type="email" id="email" name="email" required><br>
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" required></textarea>
+                <input type="submit" value="Envoyer">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
