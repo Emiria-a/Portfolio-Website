@@ -21,11 +21,13 @@
             <a href="#projets" data-translate="projects" data-translate-title="title_projects">Mes projets</a>
         </div>
         <div id="switch">
-            <!-- Rounded switch -->
+            <!-- Rounded switch with labels -->
+            <span class="theme-label dark-label">🌙</span>
             <label class="switch">
                 <input type="checkbox">
                 <span class="slider round"></span>
             </label>
+            <span class="theme-label light-label">☀️</span>
         </div>
         <div id="language-selector">
             <select id="languageSelect" onchange="setLanguage(this.value)">
@@ -112,7 +114,8 @@
         </div>
     </div>
 
-    <!-- Add JavaScript file -->
+    <!-- Add JavaScript files -->
     <script src="js/translations.js"></script>
+    <script src="js/theme.js"></script>
 </body>
 </html>

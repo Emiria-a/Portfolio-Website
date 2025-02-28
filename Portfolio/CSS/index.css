@@ -1,8 +1,29 @@
-/*------------------------------------- Général #200f35------------------------------------*/
+:root {
+    /* Dark theme (default) */
+    --bg-color: #5e608b;
+    --text-color: #f2f2f2;
+    --nav-bg: #141516c9;
+    --element-bg: #141516;
+    --element-hover: #2a2a2a;
+    --border-color: #f2f2f2;
+}
+
+/* Light theme */
+:root[data-theme="light"] {
+    --bg-color: #f0f2f5;
+    --text-color: #141516;
+    --nav-bg: #ffffffc9;
+    --element-bg: #ffffff;
+    --element-hover: #e4e6e8;
+    --border-color: #141516;
+}
+
+/*------------------------------------- Général ------------------------------------*/
 body {
     margin: 0;
-    color: #f2f2f2;
-    background-color: #5e608b;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: all 0.3s ease;
 }
 
 h2 {
@@ -17,40 +38,40 @@ p {
 #pagetop {
     top: 0px;
     position: fixed;
-    background-color: #141516c9;
+    background-color: var(--nav-bg);
     background-blend-mode: multiply;
     border-radius: 50px;
-    border: 1px solid #000000;
+    border: 1px solid var(--border-color);
     width: 95%;
     padding: 15px 15px;
     margin: 1%;
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
 }
 
 /* Style the navbar */
 #navbar {
+    display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 15px 0px;
+    gap: 10px;
 }
   
 /* Navbar links */
 #navbar a {
-    float: left;
     display: block;
-    color: #f2f2f2;
+    color: var(--text-color);
     text-align: center;
-    padding: 14px;
+    padding: 8px 15px;
     text-decoration: none;
-    font-size: 17px;
-    border-radius: 50px;
+    font-size: 16px;
+    border-radius: 25px;
 }
 
 #navbar a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: var(--element-hover);
+    color: var(--text-color);
 }
 
 #navbar a.active {
@@ -128,11 +149,26 @@ input:checked + .slider:before {
 
 
 /* Contact button */
-#contact {
-    border-radius: 50px;
+#button {
+    display: flex;
+    align-items: center;
 }
 
+#contactButton {
+    background-color: var(--element-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 25px;
+    padding: 8px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+}
 
+#contactButton:hover {
+    background-color: var(--element-hover);
+}
 
 /*------------------------------------- Présentation ------------------------------------*/
 #presentation {
@@ -156,15 +192,28 @@ input:checked + .slider:before {
     width: 50%;
 }
 
-#DownloadCV {
-    border-radius: 50px;
-    background-color: #04AA6D;
-    color: white;
-    padding: 12px 20px;
-    border: none;
+#DownloadCV .btn {
+    background-color: var(--element-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 25px;
+    padding: 8px 15px;
+    font-size: 16px;
     cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
+#DownloadCV .btn:hover {
+    background-color: var(--element-hover);
+}
+
+#DownloadCV .btn i {
+    font-size: 16px;
+}
 
 /*------------------------------------- A propos de moi ------------------------------------*/
 #aPropos {
@@ -205,21 +254,22 @@ input:checked + .slider:before {
 /* Add a background color and some padding around the form */
 #container {
     border-radius: 5px;
-    background-color: #120720;
+    background-color: var(--element-bg);
     padding: 20px;
     margin: 8% 25%;
+    color: var(--text-color);
 }
 
 /* Style inputs with type="text", select elements and textareas */
 input[type=text], input[type=email], select, textarea {
     width: 100%; /* Full width */
     padding: 12px; /* Some padding */ 
-    border: 1px solid #ccc; /* Gray border */
+    border: 1px solid var(--border-color);
     border-radius: 4px; /* Rounded borders */
     box-sizing: border-box; /* Make sure that padding and width stays in place */
-    margin-top: 6px; /* Add a top margin */
-    margin-bottom: 16px; /* Bottom margin */
-    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+    resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+    background-color: var(--element-bg);
+    color: var(--text-color);
 }
   
 /* Style the submit button with a specific background color etc */
@@ -249,31 +299,88 @@ input[type=submit]:hover {
     font-weight: bold;
 }
 
-/* Remove the switch styles and add language selector styles */
+/* Language selector styles */
 #language-selector {
     display: flex;
     align-items: center;
-    margin: 0 15px;
+    position: relative;
 }
 
 #languageSelect {
-    background-color: #141516;
-    color: #f2f2f2;
-    border: 1px solid #f2f2f2;
+    background-color: var(--element-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
     border-radius: 25px;
     padding: 8px 15px;
     font-size: 16px;
     cursor: pointer;
     outline: none;
     transition: all 0.3s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 30px; /* Space for the custom arrow */
+}
+
+/* Custom arrow */
+#language-selector::after {
+    content: "▼";
+    font-size: 12px;
+    color: #f2f2f2;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
 }
 
 #languageSelect:hover {
-    background-color: #2a2a2a;
+    background-color: var(--element-hover);
 }
 
+/* Style the dropdown options */
 #languageSelect option {
-    background-color: #141516;
-    color: #f2f2f2;
-    padding: 10px;
+    background-color: var(--element-bg);
+    color: var(--text-color);
+    padding: 8px 15px;
+    font-size: 16px;
+    border: none;
+}
+
+/* For Firefox */
+#languageSelect:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #f2f2f2;
+}
+
+/* For IE/Edge */
+#languageSelect::-ms-expand {
+    display: none;
+}
+
+.theme-label {
+    font-size: 16px;
+    color: var(--text-color);
+    cursor: default;
+    transition: opacity 0.3s ease;
+}
+
+/* Style for dark mode label */
+.dark-label {
+    opacity: 0.5;
+}
+
+/* Style for light mode label */
+.light-label {
+    opacity: 0.5;
+}
+
+/* When in dark mode (default) */
+:root:not([data-theme="light"]) .dark-label {
+    opacity: 1;
+}
+
+/* When in light mode */
+:root[data-theme="light"] .light-label {
+    opacity: 1;
 }
