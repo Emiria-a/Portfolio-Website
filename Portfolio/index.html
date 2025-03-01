@@ -22,12 +22,12 @@
         </div>
         <div id="switch">
             <!-- Rounded switch with labels -->
-            <span class="theme-label dark-label">🌙</span>
+            <span class="theme-label dark-label"><i class="fa-solid fa-moon"></i>🌙</span>
             <label class="switch">
                 <input type="checkbox">
                 <span class="slider round"></span>
             </label>
-            <span class="theme-label light-label">☀️</span>
+            <span class="theme-label light-label"><i class="fa-solid fa-sun"></i>☀️</span>
         </div>
         <div id="language-selector">
             <select id="languageSelect" onchange="setLanguage(this.value)">
@@ -42,23 +42,34 @@
     </div>
 
     <!------------------------- Présentation ------------------------------------>
-    <div id="presentation">
+    <section id="presentation">
+        <!-- Animated bubbles and button to see my CV -->
+        <div class="bubble bubble-large"></div>
+        <div class="bubble bubble-medium"></div>
+        <div class="bubble bubble-small">
+            <div class="bubble-smaller">
+                <div id="SeeCV">
+                    <a href="Files/CV.pdf" class="btn" target="_blank">
+                        <i class="fa fa-eye"><p data-translate="seeCV"></p></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
         <div class="container">
-            <section id="ecriture">
+            <div id="ecriture">
                 <h2>Emma<br>Outor</h2>
                 <p data-translate="introduction">Je suis une étudiante en 3ème année de BUT Informatique.</p>
-            </section>
+            </div>
         </div>
         <div class="container link">
-            <div id="DownloadCV">
-                <button class="btn"><i class="fa fa-download"></i> <span data-translate="downloadCV">CV</span></button>
-            </div>
             <div id="reseauxSociaux">
-                <a href="https://www.linkedin.com/in/emma-outor-123456789" class="fa fa-linkedin" data-translate-title="title_linkedin"></a>
-                <a href="https://www.github.com/emma-outor" class="fa fa-github" data-translate-title="title_github"></a>
+                <a href="https://github.com/Emiria-a" class="fa fa-github" data-translate-title="title_github" target="_blank"></a>
+                <a href="https://linkedin.com/in/emma-outor" class="fa fa-linkedin" data-translate-title="title_linkedin" target="_blank"></a>
             </div>
         </div>
-    </div>
+    </section>
 
     <!------------------------- A propos de moi ------------------------------------>
     <section id="aPropos">

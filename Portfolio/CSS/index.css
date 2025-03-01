@@ -1,8 +1,25 @@
 :root {
     /* Dark theme (default) */
     --bg-color: #5e608b;
+    --presentation-bg-color: linear-gradient(180deg, 
+                                #2048c1 0%,
+                                #ad1be8 45%,
+                                #b25a82 75%),
+                            linear-gradient(90deg, 
+                                #362d42,
+                                #231931 6%,
+                                #20162e 15%,
+                                #1e1230 40%,
+                                #201236 55%,
+                                #291341 65%,
+                                transparent 90%);
+    --cv-button-bg-color: rgba(187, 25, 187, 0.548);
+    --cv-button-bg-color-hover: rgba(187, 25, 187, 0.719);
+    --bubble-smaller-color: rgba(189, 141, 218, 0.555);
+    --bubble-small-color: rgba(148, 108, 158, 0.596);
+    --bubble-large-color: linear-gradient(45deg, rgba(64, 224, 208, 0.514), rgba(119, 0, 255, 0.658));
     --text-color: #f2f2f2;
-    --nav-bg: #141516c9;
+    --nav-bg: #141516ad;
     --element-bg: #141516;
     --element-hover: #2a2a2a;
     --border-color: #f2f2f2;
@@ -11,11 +28,38 @@
 /* Light theme */
 :root[data-theme="light"] {
     --bg-color: #f0f2f5;
+    --presentation-bg-color: linear-gradient(180deg, 
+                                #2048c1 0%,
+                                #ad1be8 45%,
+                                #b25a82 75%),
+                            linear-gradient(90deg, 
+                                #e5d9ee,
+                                #e2bde4 6%,
+                                #e9bcee 15%,
+                                #e3afe4 40%,
+                                #d3a4e6f5 55%,
+                                #daa5e7e0 65%,
+                                transparent 90%);
+    --cv-button-bg-color: rgb(227, 243, 243);
+    --cv-button-bg-color-hover: rgb(245, 255, 255);
+    --bubble-smaller-color: rgba(137, 190, 226, 0.637);
+    --bubble-small-color: rgba(65, 166, 196, 0.493);
+    --bubble-large-color: linear-gradient(45deg, rgba(64, 224, 208, 0.514), rgba(119, 0, 255, 0.658));
     --text-color: #141516;
-    --nav-bg: #ffffffc9;
+    --nav-bg: #ffffffbe;
     --element-bg: #ffffff;
     --element-hover: #e4e6e8;
     --border-color: #141516;
+}
+
+/* When in dark mode (default) */
+:root:not([data-theme="light"]) .dark-label {
+    opacity: 1;
+}
+
+/* When in light mode */
+:root[data-theme="light"] .light-label {
+    opacity: 1;
 }
 
 /*------------------------------------- Général ------------------------------------*/
@@ -27,7 +71,7 @@ body {
 }
 
 h2 {
-    font-size: 6em;
+    font-size: 8em;
 }
 
 p {
@@ -49,6 +93,7 @@ p {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    z-index: 1000;
 }
 
 /* Style the navbar */
@@ -65,7 +110,7 @@ p {
     text-align: center;
     padding: 8px 15px;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 17px;
     border-radius: 25px;
 }
 
@@ -83,6 +128,12 @@ p {
     padding: 16px;
 }
 
+
+#switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
 /* The switch - the box around the slider */
 .switch {
@@ -147,6 +198,81 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
+.theme-label {
+    font-size: 16px;
+    color: var(--text-color);
+    cursor: default;
+    transition: opacity 0.3s ease;
+}
+
+/* Style for dark mode label */
+.dark-label {
+    opacity: 0.5;
+}
+
+/* Style for light mode label */
+.light-label {
+    opacity: 0.5;
+}
+
+/* Language selector styles */
+#language-selector {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#languageSelect {
+    background-color: var(--element-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 25px;
+    padding: 8px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 30px; /* Space for the custom arrow */
+}
+
+/* Custom arrow */
+#language-selector::after {
+    content: "▼";
+    font-size: 12px;
+    color: var(--text-color);
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+#languageSelect:hover {
+    background-color: var(--element-hover);
+}
+
+/* Style the dropdown options */
+#languageSelect option {
+    background-color: var(--element-bg);
+    color: var(--text-color);
+    padding: 8px 15px;
+    font-size: 16px;
+    border: none;
+}
+
+/* For Firefox */
+#languageSelect:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #f2f2f2;
+}
+
+/* For IE/Edge */
+#languageSelect::-ms-expand {
+    display: none;
+}
 
 /* Contact button */
 #button {
@@ -172,47 +298,174 @@ input:checked + .slider:before {
 
 /*------------------------------------- Présentation ------------------------------------*/
 #presentation {
-    height:55vh;
-    flex-direction: row;
+    min-height: 80vh;
+    display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     padding: 10% 5%;
+    background: var(--presentation-bg-color);
+    background-blend-mode: soft-light;
+}
+
+/* Bubbles */
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: float 10s ease-in-out infinite;
+    z-index: 1;
+}
+
+/* Large bubble */
+.bubble-large {
+    width: 600px;
+    height: 600px;
+    right: 11%;
+    top: 50%;
+    background: var(--bubble-large-color);
+    animation-delay: 0s;
+}
+
+/* Medium bubble */
+.bubble-medium {
+    width: 300px;
+    height: 300px;
+    left: 10%;
+    bottom: 20%;
+    background: linear-gradient(45deg, rgba(0, 0, 255, 0.15), rgba(128, 0, 128, 0.15));
+    animation-delay: -3s;
+}
+
+/* Small bubble - contains download button */
+.bubble-small {
+    width: 200px;
+    height: 200px;
+    right: 38%;
+    bottom: 35%;
+    background: var(--bubble-small-color);
+    animation-delay: -6s;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-.container {
+.bubble-smaller {
+    position: relative;
+    border-radius: 50%;
+    width: 173px;
+    height: 173px;
+    background: var(--bubble-smaller-color);
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    float: left;
-    width: 50%;
+    justify-content: center;
+    align-items: center;
 }
 
-.container link {
-    padding: 10% 5%;
-    width: 50%;
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateY(20px) rotate(-5deg);
+    }
 }
 
-#DownloadCV .btn {
-    background-color: var(--element-bg);
+/* Content containers */
+.container {
+    position: relative;
+    z-index: 10;
+}
+
+.container:first-child {
+    width: 60%;
+    padding-top: 8%;
+}
+
+.container.link {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10%;
+}
+
+#SeeCV {
+    position: relative;
+    z-index: 100;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#SeeCV .btn {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: var(--cv-button-bg-color);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: var(--text-color);
-    border: 1px solid var(--border-color);
-    border-radius: 25px;
-    padding: 8px 15px;
-    font-size: 16px;
+    font-size: 1rem;
     cursor: pointer;
-    outline: none;
     transition: all 0.3s ease;
     display: flex;
+    flex-direction: column;
+    padding: 0;
+    text-decoration: none;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
 }
 
-#DownloadCV .btn:hover {
-    background-color: var(--element-hover);
+#SeeCV p {
+    font-size: 1.5rem;
+    text-align: center;
 }
 
-#DownloadCV .btn i {
-    font-size: 16px;
+#SeeCV .btn:hover {
+    background: var(--cv-button-bg-color-hover);
+    transform: scale(1.05);
+}
+
+#SeeCV .btn i.fa-eye {
+    font-size: 1.7rem;
+    text-align: center;
+    color: var(--text-color) !important;
+}
+
+#reseauxSociaux {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.fa-github, .fa-linkedin {
+    padding: 2rem;
+    font-size: 3.5rem;
+    width: 3.5rem;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    color: var(--element-bg) !important;
+    transition: transform 0.3s ease;
+}
+
+.fa-github:hover, .fa-linkedin:hover {
+    transform: scale(1.15);
+}
+
+.fa-linkedin, .fa-github {
+    background: transparent;
 }
 
 /*------------------------------------- A propos de moi ------------------------------------*/
@@ -285,102 +538,4 @@ input[type=submit] {
 /* When moving the mouse over the submit button, add a darker green color */
 input[type=submit]:hover {
     background-color: #45a049;
-}
-
-#switch {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.language-label {
-    color: #333;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-/* Language selector styles */
-#language-selector {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-#languageSelect {
-    background-color: var(--element-bg);
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
-    border-radius: 25px;
-    padding: 8px 15px;
-    font-size: 16px;
-    cursor: pointer;
-    outline: none;
-    transition: all 0.3s ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    padding-right: 30px; /* Space for the custom arrow */
-}
-
-/* Custom arrow */
-#language-selector::after {
-    content: "▼";
-    font-size: 12px;
-    color: #f2f2f2;
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-}
-
-#languageSelect:hover {
-    background-color: var(--element-hover);
-}
-
-/* Style the dropdown options */
-#languageSelect option {
-    background-color: var(--element-bg);
-    color: var(--text-color);
-    padding: 8px 15px;
-    font-size: 16px;
-    border: none;
-}
-
-/* For Firefox */
-#languageSelect:-moz-focusring {
-    color: transparent;
-    text-shadow: 0 0 0 #f2f2f2;
-}
-
-/* For IE/Edge */
-#languageSelect::-ms-expand {
-    display: none;
-}
-
-.theme-label {
-    font-size: 16px;
-    color: var(--text-color);
-    cursor: default;
-    transition: opacity 0.3s ease;
-}
-
-/* Style for dark mode label */
-.dark-label {
-    opacity: 0.5;
-}
-
-/* Style for light mode label */
-.light-label {
-    opacity: 0.5;
-}
-
-/* When in dark mode (default) */
-:root:not([data-theme="light"]) .dark-label {
-    opacity: 1;
-}
-
-/* When in light mode */
-:root[data-theme="light"] .light-label {
-    opacity: 1;
 }
